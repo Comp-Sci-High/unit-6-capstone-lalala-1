@@ -18,7 +18,11 @@ app.use((req, res, next) => {
 const studentSchema = new mongoose.Schema(
     {
         name: { type: String },
-        grade: { type: Number, default: 0 },
+        Mathgrade: { type: String, default:0 },
+        Scigrade: { type: Number, default: 0 },
+        ELAgrade: { type: Number, default: 0 },
+        Histgrade: { type: Number, default: 0 },
+        CSgrade: { type: Number, default: 0 },
         numberOfF:{type: Number}
     }
 );
@@ -46,27 +50,10 @@ app.patch("/student/:_id", async (req, res) => {
     
 
 
-async function prepopulateDb() {
-    try {
-        // Feel free to change the names you want to populate
-        await Student.insertMany([
-            { name: "Enter name here" }
-        ]);
-
-        console.log('Students added successfully!');
-    } catch (err) {
-        console.error('Error prepopulating database:', err);
-    }
-}
-
 async function startServer() {
     // Add your SRV string, make sure that the database is called SE12
-    await mongoose.connect("mongodb+srv://SE12:CSH2025@cluster0.xfcbvkb.mongodb.net/SE12?retryWrites=true&w=majority&appName=Cluster0");
-
-
-    
- prepopulateDb()
-
+    await mongoose.connect("mongodb+srv://SE12:CSH2025@cluster0.xfcbvkb.mongodb.net/grades?retryWrites=true&w=majority&appName=Cluster0");
+ 
     app.listen(3000, () => {
         console.log(`Server running.`);
     });
