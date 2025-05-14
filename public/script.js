@@ -4,7 +4,6 @@ async function deleteStudent(id) {
    }
    
 
-// Task 6: Write the update student function using ID
 async function updateStudent(e, id) {
     e.preventDefault();
    
