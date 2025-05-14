@@ -12,24 +12,11 @@
   <div class="card-container">
     <% for(let i = 0; i < students.length; i++){ %>
       <div class="card">
-        <img src="<%= students[i].image %>" alt="Profile Picture">
+        <img src="/pfp.png" alt="Profile Picture">
         <h2><%= students[i].name %></h2>
-        <p>Grade: <%= students[i].grade %></p>
+        <p>Average Grade: <%= students[i].grade %></p>
 
-        <div class="button-wrapper">
-              <div class="card">
-                <form onsubmit="updateStudent(event, '<%= students[i]._id %>')">
-                  <input name="name" value="<%= students[i].name %>" />
-                  <input name="image"  value="<%= students[i].image %>" />
-                  <input name="grade" type="number" max="100" min="0" value="<%= students[i].grade %>" />
-
-                  <button type="submit">Update</button>
-                </form>
-              </div>
-
-              <button onclick="deleteStudent('<%= students[i]._id %>')">Delete</button>
-           
-        </div>
+       
 
       </div>
     <% } %>
