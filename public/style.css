@@ -1,11 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f7f7f7;
+    background-color: rgba(174, 237, 160, 0.911);
   }
   
   h1 {
     margin-top: 20px;
+    color: green;
   }
   
   .card-container {

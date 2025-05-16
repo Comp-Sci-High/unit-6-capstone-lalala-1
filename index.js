@@ -49,7 +49,7 @@ app.patch("/student/:_id", async (req, res) => {
 
 async function startServer() {
     // Add your SRV string, make sure that the database is called SE12
-    await mongoose.connect("mongodb+srv://SE12:CSH2025@cluster0.xfcbvkb.mongodb.net/grades?retryWrites=true&w=majority&appName=Cluster0");
+    await mongoose.connect("mongodb+srv://SE12:CSH2025@cluster0.xfcbvkb.mongodb.net/CSH2025?retryWrites=true&w=majority&appName=Cluster0");
  
     app.listen(3000, () => {
         console.log(`Server running.`);
