@@ -7,20 +7,65 @@
   <script src="/script.js" defer></script>
 </head>
 <body>
-  <h1>Talented Squad Grade Tracker</h1>
 
-  <div class="card-container">
-    <% for(let i = 0; i < students.length; i++){ %>
-      <div class="card">
-        <img src="/pfp.png" alt="Profile Picture">
-        <h2><%= students[i].name %></h2>
-        <p>Average Grade: <%= students[i].grade %></p>
+  <nav>
+    <div class="nav-left">
+      <img src="logo.png" alt="Logo" class="logo">
+    </div>
+    <a href="#students-grades">Student's Grades</a>
+    <a href="#averages">Averages</a>
+  </nav>
 
-       
+  <h1>The Grade Tracker</h1>
 
-      </div>
-    <% } %>
+ <div class="card-container">
+  <% for (let i = 0; i < students.length; i++) { 
+    const s = students[i];
+    const grades = [s.Scigrade, s.Histgrade, s.CSgrade, s.Mathgrade, s.ELAgrade];
+    const validGrades = grades.filter(g => typeof g === 'number' && !isNaN(g));
+    const average = validGrades.length > 0
+      ? (validGrades.reduce((sum, g) => sum + g, 0) / validGrades.length).toFixed(2)
+      : "N/A";
+  %>
+
+  <div class="card">
+    <img src="/pfp.png" alt="Profile Picture">
+    <h2><%= s.name %></h2>
+    <p>Average Grade: <%= average %></p>
+
+    <form onsubmit="updateStudent(event, '<%= s._id %>')">
+      <label>NAME:</label>
+      <input name="name" value="<%= s.name %>" />
+      <input name="image" value="<%= s.image %>" />
+
+      <label>Science Grade:</label>
+      <input name="Scigrade" type="number" max="125" min="0" value="<%= s.Scigrade %>" />
+
+      <label>History Grade:</label>
+      <input name="Histgrade" type="number" max="125" min="0" value="<%= s.Histgrade %>" />
+
+      <label>CS Grade:</label>
+      <input name="CSgrade" type="number" max="125" min="0" value="<%= s.CSgrade %>" />
+
+      <label>Math Grade:</label>
+      <input name="Mathgrade" type="number" max="125" min="0" value="<%= s.Mathgrade %>" />
+
+      <label>ELA Grade:</label>
+      <input name="ELAgrade" type="number" max="125" min="0" value="<%= s.ELAgrade %>" />
+      <button type="submit">Update</button>
+    </form>
+
+    <button onclick="deleteStudent('<%= s._id %>')">Delete</button>
   </div>
 
-</body>
-</html>
+  <% } %>
+
+  <button id="add-student-btn" type="button">Add New Student</button>
+
+<div id="new-students-container"></div>
+ 
+</div>
+
+
+
+

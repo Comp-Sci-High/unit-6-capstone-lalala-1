@@ -1,14 +1,12 @@
 # Unit-6-Capstone
 
  <div class="button-wrapper">
-            <!-- Task 5: Add a form to update the student's grade -->
-            <!-- Make sure the new grade is a number from 0 to 100 -->
-            <!-- Go to script.js to complete Task 6 -->
+            
               <div class="card">
-                  <label >NAME:</label><br>
+                  
 
                 <form onsubmit="updateStudent(event, '<%= students[i]._id %>')">
-
+                  <label >NAME:</label><br>
                   <input name="name" value="<%= students[i].name %>" />
                   <input name="image"  value="<%= students[i].image %>" />
                   <label >GRADE:</label><br>
@@ -26,8 +24,6 @@
                 </form>
               </div>
 
-            <!-- Task 2: Add a button to delete the entire student by ID -->
-            <!-- Go to script.js to complete Task 3 -->
               <button onclick="deleteStudent('<%= students[i]._id %>')">Delete</button>
            
         </div>
