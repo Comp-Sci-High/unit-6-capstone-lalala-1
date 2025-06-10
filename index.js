@@ -59,11 +59,10 @@ app.patch("/student/:_id", async (req, res) => {
     req.body, {new: true})
     res.json(response);
     });
-    
-   app.post("/add/:_id", async (req, res) => {
-    const response = await Student.create({ _id: req.params._id })
-    res.json(response);    
-});
+
+
+
+   
 
 
 async function startServer() {
