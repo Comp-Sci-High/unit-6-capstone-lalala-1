@@ -13,8 +13,8 @@
       <img src="logo.png" alt="Logo" class="logo">
     </div>
     <a href="#students-grades">Student's Grades</a>
-    <a href="#averages">Averages</a>
-  </nav>
+    </nav>
+    
 
   <h1>The Grade Tracker</h1>
 
@@ -55,14 +55,15 @@
       <button type="submit">Update</button>
     </form>
 
-    <button onclick="deleteStudent('<%= s._id %>')">Delete</button>
+    <button onclick="addStudent('<%= s._id %>')">Delete</button>
+    
   </div>
 
   <% } %>
 
-  <button id="add-student-btn" type="button">Add New Student</button>
 
-<div id="new-students-container"></div>
+ 
+
  
 </div>
 

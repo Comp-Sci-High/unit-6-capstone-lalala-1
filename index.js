@@ -23,8 +23,7 @@ const studentSchema = new mongoose.Schema(
         ELAgrade: { type: Number, default: 0 },
         Histgrade: { type: Number, default: 0 },
         CSgrade: { type: Number, default: 0 },
-        numberOfF:{type: Number},
-        week: {type:String}
+        
     }
     
 );
@@ -39,8 +38,7 @@ app.post("/add/student", async (req, res) => {
     ELAgrade: req.body.ELAgrade,
     Histgrade: req.body.Histgrade,
     CSgrade: req.body.CSgrade,
-    numberOff: req.body.numberOFF,
-    week: req.body.week
+   
   }).save();
   res.json(newStudent);
 });
@@ -62,7 +60,11 @@ app.patch("/student/:_id", async (req, res) => {
     res.json(response);
     });
     
-   
+   app.post("/add/:_id", async (req, res) => {
+    const response = await Student.create({ _id: req.params._id })
+    res.json(response);    
+});
+
 
 async function startServer() {
     // Add your SRV string, make sure that the database is called SE12
